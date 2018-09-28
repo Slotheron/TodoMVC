@@ -9,6 +9,7 @@ function enter(e) {
 let itemId = 0;
 function addListElement() {
     itemId++;
+    let currentId = itemId;
     let text = document.getElementById("add");
     let parent = document.getElementById('list');
     let child = document.createElement('li');
@@ -19,11 +20,19 @@ function addListElement() {
     label.value = text.value;
     label.textContent = text.value;
     let button = document.createElement('button');
+    button.setAttribute('id', 'buttonItem' + currentId);
     button.textContent = 'X'
     child.appendChild(input);
     child.appendChild(label);
     child.appendChild(button);
-    child.setAttribute('id', itemId);
+    child.setAttribute('id', 'listItem' + currentId);
     parent.appendChild(child);
+    document.getElementById('buttonItem' + currentId).addEventListener('click',function(){
+        removeListElement('listItem' + currentId);
+    });
 }
-
+function removeListElement(listItemId){
+    let parent = document.getElementById('list');
+    let element = document.getElementById(listItemId);
+    parent.removeChild(element);
+}
