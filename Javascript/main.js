@@ -1,4 +1,3 @@
-let inputBox = document.getElementById("add");
 document.addEventListener("keydown", enter);
 
 function enter(e) {
