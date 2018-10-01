@@ -44,12 +44,19 @@ input[type='checkbox'] {
     display: none;
 }
 
-input[type='checkbox'] + label {
-    background: url(file:///C:/Users/Karlm/Google%20Drive/Skolan/Webbutveckling/ToDoMVC/TodoMVC/Icons/checkbox-unchecked.svg);
-    position: relative;
-    display: inline-block;
-    top: 0;
-    left: 0;
-    height: 25px;
-    width: 25px;
+input[type=checkbox] + label {
+    display:inline-block;
+    padding: 0 0 0 0px;
+    background:url("https://web.2018.plus.jakobkallin.com/project/icons/checkbox-unchecked.svg") no-repeat;
+    height: 20px;
+    width: 20px;
+    background-size: 100%;
+}
+
+input[type=checkbox]:checked + label {
+    background:url("https://web.2018.plus.jakobkallin.com/project/icons/checkbox-checked.svg") no-repeat;
+    height: 20px;
+    width: 20px;
+    display:inline-block;
+    background-size: 100%;
 }
