@@ -23,6 +23,7 @@ function template(){
     checkBoxLabel.setAttribute('class', 'checkBoxLabel');
     checkBoxLabel.setAttribute('for', 'checkBox' + currentId);
     let label = document.createElement('label');
+    label.setAttribute('class', 'listItemLabel')
     label.text = text.value;
     label.value = text.value;
     label.textContent = text.value;
