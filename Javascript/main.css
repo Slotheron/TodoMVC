@@ -33,4 +33,23 @@ input[type=text]{
 }
 button{
     margin-left: 5px;
+    float: right;
+}
+
+#listItem {
+    margin-left: 50px;
+}
+
+input[type='checkbox'] {
+    display: none;
+}
+
+input[type='checkbox'] + label {
+    background: url(file:///C:/Users/Karlm/Google%20Drive/Skolan/Webbutveckling/ToDoMVC/TodoMVC/Icons/checkbox-unchecked.svg);
+    position: relative;
+    display: inline-block;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
 }
