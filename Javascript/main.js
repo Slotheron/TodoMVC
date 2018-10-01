@@ -29,6 +29,7 @@ function addListElement() {
     child.appendChild(label);
     child.appendChild(button);
     child.setAttribute('id', 'listItem' + currentId);
+    child.setAttribute('class', 'listItem');
     parent.appendChild(child);
     document.getElementById('buttonItem' + currentId).addEventListener('click', function () {
         removeListElement('listItem' + currentId);
