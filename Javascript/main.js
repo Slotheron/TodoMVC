@@ -10,14 +10,16 @@ function enter(e) {
 
 let listCount = 0;
 let itemId = 0;
-function addListElement() {
-    itemId++;
+
+function template(){
     let currentId = itemId;
     let text = document.getElementById("add");
     let parent = document.getElementById('list');
     let child = document.createElement('li');
     let input = document.createElement('input');
     input.type = 'checkbox';
+    let checkBoxLabel = document.createElement('label');
+    checkBoxLabel.setAttribute('class', 'checkBoxLabel');
     let label = document.createElement('label');
     label.text = text.value;
     label.value = text.value;
@@ -26,6 +28,7 @@ function addListElement() {
     button.setAttribute('id', 'buttonItem' + currentId);
     button.textContent = 'X'
     child.appendChild(input);
+    child.appendChild(checkBoxLabel);
     child.appendChild(label);
     child.appendChild(button);
     child.setAttribute('id', 'listItem' + currentId);
@@ -36,6 +39,11 @@ function addListElement() {
     });
     listCount++;
     text.value = "";
+}
+
+function addListElement() {
+    itemId++;
+    template();
     updateCount();
 }
 function removeListElement(listItemId) {
