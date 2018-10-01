@@ -2,6 +2,10 @@ section {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
+li {
+    margin-bottom: 20px;
+}
+
 .mvctodo h1 {
     font-size: 80px;
     text-align: center;
@@ -33,6 +37,7 @@ input[type=text]{
 }
 button {
     margin-left: 5px;
+    margin-top: 0.5em;
     float: right;
     background: url("https://web.2018.plus.jakobkallin.com/project/icons/cross.svg");
     background-size: 100%;
@@ -42,6 +47,22 @@ input[type='checkbox'] {
     display: none;
 }
 
+.listItemLabel {
+    font-size: 24px;
+    padding-left: 0.5em;
+}
+
+.listItem {
+    border: solid;
+    border-style: ridge;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+.checkBoxLabel {
+    margin-top: 0.5em;
+}
+
 input[type=checkbox] + .checkBoxLabel {
     display:inline-block;
     padding: 0 0 0 0px;
@@ -49,6 +70,7 @@ input[type=checkbox] + .checkBoxLabel {
     height: 20px;
     width: 20px;
     background-size: 100%;
+    
 }
 
 input[type=checkbox]:checked + .checkBoxLabel {
