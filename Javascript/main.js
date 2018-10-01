@@ -35,12 +35,14 @@ function addListElement() {
     });
     listCount++;
     text.value = "";
+    updateCount();
 }
 function removeListElement(listItemId) {
     let parent = document.getElementById('list');
     let element = document.getElementById(listItemId);
     parent.removeChild(element);
     listCount--;
+    updateCount();
 }
 
 function validate() {
@@ -50,5 +52,25 @@ function validate() {
     }
     else {
         return true;
+    }
+}
+
+function updateCount(){
+    if(listCount == 0){
+        let countLabel = document.getElementById('countLabelId');
+        let parent = document.getElementById('mainHeader');
+        parent.removeChild(countLabel);
+    }
+    else if(listCount == 1){
+        let countLabel = document.createElement('label');
+        countLabel.setAttribute('id', 'countLabelId');
+        countLabel.value = listCount;
+
+        let parent = document.getElementById('mainHeader');
+        parent.appendChild(countLabel);
+    }
+    else{
+        let countLabel = document.getElementById('countLabelId');
+        countLabel.text = listCount;
     }
 }
