@@ -6,6 +6,11 @@ li {
     margin-bottom: 20px;
 }
 
+ol {
+    list-style: none;
+    padding: 0;
+}
+
 .mvctodo h1 {
     font-size: 80px;
     text-align: center;
@@ -41,6 +46,9 @@ button {
     float: right;
     background: url("https://web.2018.plus.jakobkallin.com/project/icons/cross.svg");
     background-size: 100%;
+    border: hidden;
+    height: 20px;
+    widows: 20px;
 }
 
 input[type='checkbox'] {
