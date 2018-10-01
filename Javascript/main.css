@@ -31,13 +31,11 @@ input[type=text]{
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3),
 	            0 20px 50px 0 rgba(0, 0, 0, 0.2);
 }
-button{
+button {
     margin-left: 5px;
     float: right;
-}
-
-#listItem {
-    margin-left: 50px;
+    background: url("https://web.2018.plus.jakobkallin.com/project/icons/cross.svg");
+    background-size: 100%;
 }
 
 input[type='checkbox'] {
