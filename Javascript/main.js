@@ -29,6 +29,7 @@ function addListElement() {
     child.appendChild(label);
     child.appendChild(button);
     child.setAttribute('id', 'listItem' + currentId);
+    child.setAttribute('class', 'listItem');
     parent.appendChild(child);
     document.getElementById('buttonItem' + currentId).addEventListener('click', function () {
         removeListElement('listItem' + currentId);
@@ -55,22 +56,26 @@ function validate() {
     }
 }
 
-function updateCount(){
-    if(listCount == 0){
-        let countLabel = document.getElementById('countLabelId');
+function updateCount() {
+    if (listCount == 0) {
+        let labelDiv = document.getElementById('divLabel');
         let parent = document.getElementById('mainHeader');
-        parent.removeChild(countLabel);
+        parent.removeChild(labelDiv);
     }
-    else if(listCount == 1){
-        let countLabel = document.createElement('label');
-        countLabel.setAttribute('id', 'countLabelId');
-        countLabel.value = listCount;
-
-        let parent = document.getElementById('mainHeader');
-        parent.appendChild(countLabel);
-    }
-    else{
-        let countLabel = document.getElementById('countLabelId');
-        countLabel.text = listCount;
+    else {
+        if (document.getElementById('countLabelId')) {
+            let countLabel = document.getElementById('countLabelId');
+            countLabel.textContent = listCount;
+        }
+        else {
+            let labelDiv = document.createElement('div')
+            labelDiv.setAttribute('id', 'divLabel');
+            let countLabel = document.createElement('label');
+            countLabel.setAttribute('id', 'countLabelId');
+            countLabel.textContent = listCount;
+            labelDiv.appendChild(countLabel);
+            let parent = document.getElementById('mainHeader');
+            parent.appendChild(labelDiv);
+        }
     }
 }
