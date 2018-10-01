@@ -17,9 +17,11 @@ function template(){
     let parent = document.getElementById('list');
     let child = document.createElement('li');
     let input = document.createElement('input');
+    input.setAttribute('id', 'checkBox' + currentId);
     input.type = 'checkbox';
     let checkBoxLabel = document.createElement('label');
     checkBoxLabel.setAttribute('class', 'checkBoxLabel');
+    checkBoxLabel.setAttribute('for', 'checkBox' + currentId);
     let label = document.createElement('label');
     label.text = text.value;
     label.value = text.value;
