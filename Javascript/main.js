@@ -29,7 +29,6 @@ function template(){
     label.textContent = text.value;
     let button = document.createElement('button');
     button.setAttribute('id', 'buttonItem' + currentId);
-    button.textContent = 'X'
     child.appendChild(input);
     child.appendChild(checkBoxLabel);
     child.appendChild(label);
