@@ -2,9 +2,6 @@ section {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
-li {
-}
-
 ol {
     list-style: none;
     padding: 0;
@@ -57,7 +54,7 @@ input[type='checkbox'] {
 
 .listItem {
     border: 1px solid #ccc;
-    padding: 19px 15px 15px 20px;
+    padding: 20px 15px 15px 20px;
 }
 
 .checkBoxLabel {
@@ -79,4 +76,9 @@ input[type=checkbox]:checked + .checkBoxLabel {
     width: 20px;
     display:inline-block;
     background-size: 100%;
+}
+
+#divLabel {
+    border: 1px solid #ccc;
+    padding: 10px 15px 10px 10px;
 }
