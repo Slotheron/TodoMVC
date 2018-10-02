@@ -13,7 +13,7 @@ let itemId = 0;
 let itemsLeft = ' items left';
 let itemLeft = ' item left';
 
-function template(){
+function template() {
     let currentId = itemId;
     let text = document.getElementById("add");
     let parent = document.getElementById('list');
@@ -76,8 +76,14 @@ function updateCount() {
     }
     else {
         if (document.getElementById('countLabelId')) {
-            let countLabel = document.getElementById('countLabelId');
-            countLabel.textContent = listCount + itemsLeft;
+            if (listCount == 1) {
+                let countLabel = document.getElementById('countLabelId');
+                countLabel.textContent = listCount + itemLeft;
+            }
+            else {
+                let countLabel = document.getElementById('countLabelId');
+                countLabel.textContent = listCount + itemsLeft;
+            }
         }
         else {
             let labelDiv = document.createElement('div')
