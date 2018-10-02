@@ -41,7 +41,6 @@ input[type=text]{
 }
 button {
     margin-left: 5px;
-    margin-top: 0.5em;
     float: right;
     background: url("https://web.2018.plus.jakobkallin.com/project/icons/cross.svg");
     background-size: 100%;
@@ -61,27 +60,25 @@ input[type='checkbox'] {
 
 .listItem {
     border: solid;
-    border-style: ridge;
-    padding-left: 0.5em;
-    padding-right: 0.5em;
+    border-bottom: #4d4d4d;
+    padding: 19px 15px 15px 20px;
 }
 
 .checkBoxLabel {
-    margin-top: 0.5em;
+    float: left;
 }
 
 input[type=checkbox] + .checkBoxLabel {
     display:inline-block;
     padding: 0 0 0 0px;
-    background:url("https://web.2018.plus.jakobkallin.com/project/icons/checkbox-unchecked.svg") no-repeat;
+    background:url("https://web.2018.plus.jakobkallin.com/project/icons/checkbox-unchecked.svg");
     height: 20px;
     width: 20px;
-    background-size: 100%;
-    
+    background-size: 100%;   
 }
 
 input[type=checkbox]:checked + .checkBoxLabel {
-    background:url("https://web.2018.plus.jakobkallin.com/project/icons/checkbox-checked.svg") no-repeat;
+    background:url("https://web.2018.plus.jakobkallin.com/project/icons/checkbox-checked.svg");
     height: 20px;
     width: 20px;
     display:inline-block;
