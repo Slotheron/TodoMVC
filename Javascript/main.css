@@ -83,6 +83,7 @@ input[type=checkbox]:checked + .checkBoxLabel {
 }
 
 #divLabel {
+    display: block;
     border: 1px solid #ccc;
     padding: 10px 15px 10px 10px;
 }
