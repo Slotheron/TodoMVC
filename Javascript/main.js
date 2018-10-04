@@ -16,7 +16,7 @@ let itemLeft = ' item left';
 function template() {
     let currentId = itemId;
     let text = document.getElementById("add");
-    let parent = document.getElementById('list');
+    let parent = document.getElementById('todoList');
     let child = document.createElement('li');
     let input = document.createElement('input');
     input.setAttribute('id', 'checkBox' + currentId);
@@ -51,7 +51,7 @@ function addListElement() {
     updateCount();
 }
 function removeListElement(listItemId) {
-    let parent = document.getElementById('list');
+    let parent = document.getElementById('todoList');
     let element = document.getElementById(listItemId);
     parent.removeChild(element);
     listCount--;
