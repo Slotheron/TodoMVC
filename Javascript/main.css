@@ -38,6 +38,13 @@ body {
     box-sizing: border-box;
 }
 
+.add + label {
+    background: url("https://web.2018.plus.jakobkallin.com/project/icons/circle-down.svg");
+    position: absolute;
+    height: 34px;
+    width: 60px;
+}
+
 button {
     margin-left: 5px;
     float: right;
