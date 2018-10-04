@@ -21,11 +21,15 @@ function template() {
     let input = document.createElement('input');
     input.setAttribute('id', 'checkBox' + currentId);
     input.type = 'checkbox';
+    input.addEventListener('click', function () {
+        isChecked(currentId);
+    });
     let checkBoxLabel = document.createElement('label');
     checkBoxLabel.setAttribute('class', 'checkBoxLabel');
     checkBoxLabel.setAttribute('for', 'checkBox' + currentId);
     let label = document.createElement('label');
     label.setAttribute('class', 'listItemLabel')
+    label.setAttribute('id', 'listLabel' + currentId);
     label.text = text.value;
     label.value = text.value;
     label.textContent = text.value;
@@ -78,5 +82,20 @@ function updateCount() {
         labelDiv.textContent = listCount + itemLeft;
         let parent = document.getElementById('mvcFooter');
         parent.setAttribute('style', 'display: block');
+    }
+}
+
+function isChecked(Id) {
+    let checkboxId = "checkbox" + Id;
+    let element = document.getElementById(checkboxId);
+    if (element.checked == true) {
+        let label = document.getElementById("listLabel" + Id)
+
+        listCount--;
+        updateCount();
+    }
+    else {
+        listCount++;
+        updateCount();
     }
 }
