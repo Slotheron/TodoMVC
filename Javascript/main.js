@@ -146,15 +146,14 @@ function showAll() {
 }
 
 function showUncompleted() {
-    function showCompleted() {
-        for (i = 0; i < listCount; i++) {
-            if (isChecked(i) == false) {
-                let listItemId = 'listItem' + i;
-                let element = document.getElementById(listItemId);
-                element.setAttribute('style', 'display: none');
-            }
+    for (i = 0; i < listCount; i++) {
+        if (isChecked(i) == false) {
+            let listItemId = 'listItem' + i;
+            let element = document.getElementById(listItemId);
+            element.setAttribute('style', 'display: none');
         }
     }
+
 }
 
 function checkAll() {
