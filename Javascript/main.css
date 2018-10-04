@@ -84,13 +84,17 @@ input[type=checkbox]:checked + .checkBoxLabel {
 
 #divLabel {
     text-align: center;
-    display: block;
+    display: flex;
     border: 1px solid #ccc;
     padding: 10px 15px 10px 10px;
 }
 
 .selectFilter {
     position: absolute;
+}
+
+.selectFilter li {
+    display: inline;
 }
 
 .strike{
