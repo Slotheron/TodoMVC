@@ -88,7 +88,9 @@ input[type=checkbox]:checked + .checkBoxLabel {
 }
 
 .selectFilter {
-    display: block;
+	position: absolute;
+	right: 0;
+	left: 0;
 }
 
 .selectFilter li {
@@ -106,4 +108,5 @@ input[type=checkbox]:checked + .checkBoxLabel {
     border: 1px solid #ccc;
     text-align: center;
     padding: 10px 15px 10px 10px;
+    height: 20px;
 }
