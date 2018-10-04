@@ -43,6 +43,7 @@ body {
     position: absolute;
     height: 34px;
     width: 60px;
+    float: left;
 }
 
 button {
