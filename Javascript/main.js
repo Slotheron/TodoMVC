@@ -70,30 +70,13 @@ function validate() {
 
 function updateCount() {
     if (listCount == 0) {
-        let labelDiv = document.getElementById('divLabel');
-        let parent = document.getElementById('mainHeader');
-        parent.removeChild(labelDiv);
+        let parent = document.getElementById('mvcFooter');
+        parent.setAttribute('style', 'display: none');
     }
     else {
-        if (document.getElementById('countLabelId')) {
-            if (listCount == 1) {
-                let countLabel = document.getElementById('countLabelId');
-                countLabel.textContent = listCount + itemLeft;
-            }
-            else {
-                let countLabel = document.getElementById('countLabelId');
-                countLabel.textContent = listCount + itemsLeft;
-            }
-        }
-        else {
-            let labelDiv = document.createElement('div')
-            labelDiv.setAttribute('id', 'divLabel');
-            let countLabel = document.createElement('label');
-            countLabel.setAttribute('id', 'countLabelId');
-            countLabel.textContent = listCount + itemLeft;
-            labelDiv.appendChild(countLabel);
-            let parent = document.getElementById('mainHeader');
-            parent.appendChild(labelDiv);
-        }
+        let labelDiv = document.getElementById('divLabel')
+        labelDiv.textContent = listCount + itemLeft;
+        let parent = document.getElementById('mvcFooter');
+        parent.setAttribute('style', 'display: block');
     }
 }
