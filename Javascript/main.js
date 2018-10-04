@@ -22,7 +22,7 @@ function template() {
     input.setAttribute('id', 'checkBox' + currentId);
     input.type = 'checkbox';
     input.addEventListener('click', function () {
-        isChecked(currentId);
+        checkIt(currentId);
     });
     let checkBoxLabel = document.createElement('label');
     checkBoxLabel.setAttribute('class', 'checkBoxLabel');
@@ -43,7 +43,7 @@ function template() {
     child.setAttribute('class', 'listItem');
     parent.appendChild(child);
     document.getElementById('buttonItem' + currentId).addEventListener('click', function () {
-        removeListElement('listItem' + currentId);
+        removeListElement(currentId);
     });
     listCount++;
     text.value = "";
@@ -54,11 +54,14 @@ function addListElement() {
     template();
     updateCount();
 }
-function removeListElement(listItemId) {
+function removeListElement(Id) {
+    if (isChecked(Id) == false) {
+        listCount--;
+    }
+    let listItemId = 'listItem' + Id;
     let parent = document.getElementById('todoList');
     let element = document.getElementById(listItemId);
     parent.removeChild(element);
-    listCount--;
     updateCount();
 }
 
@@ -86,6 +89,17 @@ function updateCount() {
 }
 
 function isChecked(Id) {
+    let checkboxId = "checkBox" + Id;
+    let element = document.getElementById(checkboxId);
+    if (element.checked == true) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+function checkIt(Id) {
     let checkboxId = "checkBox" + Id;
     let element = document.getElementById(checkboxId);
     if (element.checked == true) {
