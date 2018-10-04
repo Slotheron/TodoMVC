@@ -92,3 +92,10 @@ input[type=checkbox]:checked + .checkBoxLabel {
 .selectFilter {
     position: absolute;
 }
+
+.strike{
+    text-decoration: line-through;
+    font-size: 24px;
+    padding-left: 0.5em;
+    color: gray;
+}

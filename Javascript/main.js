@@ -86,15 +86,17 @@ function updateCount() {
 }
 
 function isChecked(Id) {
-    let checkboxId = "checkbox" + Id;
+    let checkboxId = "checkBox" + Id;
     let element = document.getElementById(checkboxId);
     if (element.checked == true) {
         let label = document.getElementById("listLabel" + Id)
-
+        label.setAttribute('class', 'strike');
         listCount--;
         updateCount();
     }
     else {
+        let label = document.getElementById("listLabel" + Id)
+        label.setAttribute('class', 'listItemLabel');
         listCount++;
         updateCount();
     }
