@@ -85,12 +85,17 @@ input[type=checkbox]:checked + .checkBoxLabel {
 #divLabel {
     text-align: center;
     display: flex;
-    border: 1px solid #ccc;
     padding: 10px 15px 10px 10px;
 }
 
 .selectFilter {
+    display:block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
     position: absolute;
+    right: 0;
+    left: 0;
 }
 
 .selectFilter li {
@@ -102,4 +107,9 @@ input[type=checkbox]:checked + .checkBoxLabel {
     font-size: 24px;
     padding-left: 0.5em;
     color: gray;
+}
+
+.mvcFooter{
+    border: 1px solid #ccc;
+    text-align: center;
 }
