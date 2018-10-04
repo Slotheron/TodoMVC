@@ -115,3 +115,60 @@ function checkIt(Id) {
         updateCount();
     }
 }
+
+function removeFinished() {
+    for (i = 0; i < listCount; i++) {
+        if (isChecked(i) == true) {
+            let listItemId = 'listItem' + i;
+            let parent = document.getElementById('todoList');
+            let element = document.getElementById(listItemId);
+            parent.removeChild(element);
+        }
+    }
+}
+
+function showCompleted() {
+    for (i = 0; i < listCount; i++) {
+        if (isChecked(i) == true) {
+            let listItemId = 'listItem' + i;
+            let element = document.getElementById(listItemId);
+            element.setAttribute('style', 'display: none');
+        }
+    }
+}
+
+function showAll() {
+    for (i = 0; i < listCount; i++) {
+        let listItemId = 'listItem' + i;
+        let element = document.getElementById(listItemId);
+        element.setAttribute('style', 'display: list-item');
+    }
+}
+
+function showUncompleted() {
+    function showCompleted() {
+        for (i = 0; i < listCount; i++) {
+            if (isChecked(i) == false) {
+                let listItemId = 'listItem' + i;
+                let element = document.getElementById(listItemId);
+                element.setAttribute('style', 'display: none');
+            }
+        }
+    }
+}
+
+function checkAll() {
+    for (i = 0; i < listCount; i++) {
+        if (isChecked(i) == false) {
+            checkIt(i);
+        }
+    }
+}
+
+function unCheckAll() {
+    for (i = 0; i < listCount; i++) {
+        if (isChecked(i) == true) {
+            checkIt(i);
+        }
+    }
+}
