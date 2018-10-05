@@ -1,19 +1,19 @@
 document.addEventListener("keydown", enter);
-window.onload = function(){/*document.getElementById('').addEventListener("click", function(){
+window.onload = function () {/*document.getElementById('').addEventListener("click", function(){
     removeFinished();
 })*/
-document.getElementById('allCompleted').addEventListener("click", function(){
-    showCompleted();
-});
-document.getElementById('allSelected').addEventListener("click", function(){
-    showAll();
-});
-document.getElementById('allActive').addEventListener("click", function(){
-    showUncompleted();
-});
-document.getElementById('selectAll').addEventListener("click", function(){
-    checkAll();
-});
+    document.getElementById('allCompleted').addEventListener("click", function () {
+        showCompleted();
+    });
+    document.getElementById('allSelected').addEventListener("click", function () {
+        showAll();
+    });
+    document.getElementById('allActive').addEventListener("click", function () {
+        showUncompleted();
+    });
+    document.getElementById('selectAll').addEventListener("click", function () {
+        checkAll();
+    });
 }
 
 function enter(e) {
@@ -60,7 +60,7 @@ function template() {
     child.appendChild(button);
     child.setAttribute('id', 'listItem' + currentId);
     child.setAttribute('class', 'listItem');
-    if(view == 'completed'){
+    if (view == 'completed') {
         child.setAttribute('style', 'display: none');
     }
     parent.appendChild(child);
@@ -164,11 +164,10 @@ function showCompleted() {
         if (isChecked(elementId) == false) {
             array[i].setAttribute('style', 'display: none');
         }
-        else{
+        else {
             array[i].setAttribute('style', 'display: list-item');
         }
     }
-
     view = 'completed';
 }
 
@@ -181,6 +180,7 @@ function showAll() {
         let element = document.getElementById(listItemId);
         element.setAttribute('style', 'display: list-item');
     }
+    view = 'all';
 }
 
 function showUncompleted() {
@@ -193,18 +193,18 @@ function showUncompleted() {
             let element = document.getElementById(listItemId);
             element.setAttribute('style', 'display: none');
         }
-        else{
+        else {
             let listItemId = 'listItem' + elementId;
-        let element = document.getElementById(listItemId);
-        element.setAttribute('style', 'display: list-item');
+            let element = document.getElementById(listItemId);
+            element.setAttribute('style', 'display: list-item');
         }
     }
-
+    view = 'active';
 }
 
 function checkAll() {
     let array = document.getElementsByClassName('listItem');
-    if(checked == false){
+    if (checked == false) {
         for (i = 0; i < array.length; i++) {
             let elementId = array[i].id;
             elementId = elementId.slice(8);
@@ -216,11 +216,20 @@ function checkAll() {
                 label.setAttribute('class', 'strike');
                 listCount--;
                 updateCount();
+
+                if (view == 'completed') {
+                    let list = document.getElementById('listItem' + elementId);
+                    list.setAttribute('style', 'display: list-item');
+                }
+                else if (view == 'active'){
+                    let list = document.getElementById('listItem' + elementId);
+                    list.setAttribute('style', 'display: none');
+                }
             }
         }
-    checked = true;
+        checked = true;
     }
-    else{
+    else {
         for (i = 0; i < array.length; i++) {
             let elementId = array[i].id;
             elementId = elementId.slice(8);
@@ -232,6 +241,15 @@ function checkAll() {
                 label.setAttribute('class', 'listItemLabel');
                 listCount++;
                 updateCount();
+
+                if (view == 'completed') {
+                    let list = document.getElementById('listItem' + elementId);
+                    list.setAttribute('style', 'display: none');
+                }
+                else if (view == 'active'){
+                    let list = document.getElementById('listItem' + elementId);
+                    list.setAttribute('style', 'display: list-item');
+                }
             }
         }
         checked = false;
