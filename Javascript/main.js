@@ -137,6 +137,7 @@ function checkIt(Id) {
         label.setAttribute('class', 'listItemLabel');
         listCount++;
         updateCount();
+        checked = false;
     }
 }
 
