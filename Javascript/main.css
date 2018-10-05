@@ -8,6 +8,10 @@ ul {
     margin: 0;
 }
 
+::-webkit-input-placeholder {
+    font-style: italic;
+  }
+
 .mvctodo h1 {
     font-size: 80px;
     text-align: center;
@@ -30,20 +34,21 @@ body {
 }
 
 .add {
-    font-style: italic;
-    font-size: 20px;
+    font-size: 24px;
     width: 100%;
     padding: 20px 20px 20px 50px;
     border: 1px solid #ccc;
     box-sizing: border-box;
 }
 
-.add + label {
+.add + #selectAll {
     background: url("https://web.2018.plus.jakobkallin.com/project/icons/circle-down.svg") no-repeat;
     position: absolute;
     height: 34px;
     width: 35px;
     top: 140px;
+    margin-left: 10px;
+    opacity: 0.5;
 }
 
 button {
