@@ -39,11 +39,10 @@ body {
 }
 
 .add + label {
-    background: url("https://web.2018.plus.jakobkallin.com/project/icons/circle-down.svg");
+    background: url("https://web.2018.plus.jakobkallin.com/project/icons/circle-down.svg") no-repeat;
     position: absolute;
     height: 34px;
     width: 60px;
-    float: left;
 }
 
 button {
