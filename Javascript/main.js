@@ -32,6 +32,7 @@ let totalListCount = 0;
 let itemId = 0;
 let itemsLeft = ' items left';
 let itemLeft = ' item left';
+let view = 'all';
 
 function template() {
     let currentId = itemId;
@@ -61,6 +62,9 @@ function template() {
     child.appendChild(button);
     child.setAttribute('id', 'listItem' + currentId);
     child.setAttribute('class', 'listItem');
+    if(view == 'completed'){
+        child.setAttribute('style', 'display: none');
+    }
     parent.appendChild(child);
     document.getElementById('buttonItem' + currentId).addEventListener('click', function () {
         removeListElement(currentId);
@@ -165,6 +169,8 @@ function showCompleted() {
             array[i].setAttribute('style', 'display: list-item');
         }
     }
+
+    view = 'completed';
 }
 
 function showAll() {
