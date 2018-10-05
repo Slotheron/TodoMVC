@@ -11,12 +11,9 @@ document.getElementById('allSelected').addEventListener("click", function(){
 document.getElementById('allActive').addEventListener("click", function(){
     showUncompleted();
 });
-/*document.getElementById('').addEventListener("click", function(){
+document.getElementById('selectAll').addEventListener("click", function(){
     checkAll();
-})*/
-/*document.getElementById('').addEventListener("click", function(){
-    unCheckAll();
-})*/
+});
 }
 
 function enter(e) {
@@ -33,6 +30,7 @@ let itemId = 0;
 let itemsLeft = ' items left';
 let itemLeft = ' item left';
 let view = 'all';
+let checked = false;
 
 function template() {
     let currentId = itemId;
@@ -102,7 +100,7 @@ function validate() {
 }
 
 function updateCount() {
-    if (listCount == 0) {
+    if (listCount == 0 && totalListCount == 0) {
         let parent = document.getElementById('mvcFooter');
         parent.setAttribute('style', 'display: none');
     }
@@ -205,22 +203,36 @@ function showUncompleted() {
 
 function checkAll() {
     let array = document.getElementsByClassName('listItem');
-    for (i = 0; i < array.length; i++) {
-        let elementId = array[i].id;
-        elementId = elementId.slice(8);
-        if (isChecked(elementId) == false) {
-            checkIt(elementId);
+    if(checked == false){
+        for (i = 0; i < array.length; i++) {
+            let elementId = array[i].id;
+            elementId = elementId.slice(8);
+            if (isChecked(elementId) == false) {
+                let checkboxId = "checkBox" + elementId;
+                let element = document.getElementById(checkboxId);
+                element.checked = true;
+                let label = document.getElementById("listLabel" + elementId)
+                label.setAttribute('class', 'strike');
+                listCount--;
+                updateCount();
+            }
         }
+    checked = true;
     }
-}
-
-function unCheckAll() {
-    let array = document.getElementsByClassName('listItem');
-    for (i = 0; i < array.length; i++) {
-        let elementId = array[i].id;
-        elementId = elementId.slice(8);
-        if (isChecked(elementId) == true) {
-            checkIt(elementId);
+    else{
+        for (i = 0; i < array.length; i++) {
+            let elementId = array[i].id;
+            elementId = elementId.slice(8);
+            if (isChecked(elementId) == true) {
+                let checkboxId = "checkBox" + elementId;
+                let element = document.getElementById(checkboxId);
+                element.checked = false;
+                let label = document.getElementById("listLabel" + elementId)
+                label.setAttribute('class', 'listItemLabel');
+                listCount++;
+                updateCount();
+            }
         }
+        checked = false;
     }
 }
