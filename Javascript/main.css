@@ -12,11 +12,13 @@ ul {
     font-style: italic;
   }
 
-.mvctodo h1 {
+h1 {
+    color: pink;
     font-size: 80px;
     text-align: center;
     margin-top: 50px;
     margin-bottom: 50px;
+    font-weight: 100;
 }
 
 #todoList {
@@ -112,7 +114,16 @@ input[type=checkbox]:checked + .checkBoxLabel {
 }
 
 .selectFilter li a {
+    margin: 5px;
+    text-decoration: none;
+    color: #4d4d4d;
+    border: solid transparent;
+    border-radius: 2px;
+    padding: 5px 7px;
+}
 
+.selectFilter li a:hover {
+    border-color: rgba(240, 205, 9, 0.5);
 }
 
 .strike {
