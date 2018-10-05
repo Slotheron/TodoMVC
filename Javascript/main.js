@@ -1,4 +1,23 @@
 document.addEventListener("keydown", enter);
+window.onload = function(){/*document.getElementById('').addEventListener("click", function(){
+    removeFinished();
+})*/
+document.getElementById('allCompleted').addEventListener("click", function(){
+    showCompleted();
+});
+document.getElementById('allSelected').addEventListener("click", function(){
+    showAll();
+});
+document.getElementById('allActive').addEventListener("click", function(){
+    showUncompleted();
+});
+/*document.getElementById('').addEventListener("click", function(){
+    checkAll();
+})*/
+/*document.getElementById('').addEventListener("click", function(){
+    unCheckAll();
+})*/
+}
 
 function enter(e) {
     if (e.keyCode == '13') {
@@ -9,6 +28,7 @@ function enter(e) {
 }
 
 let listCount = 0;
+let totalListCount = 0;
 let itemId = 0;
 let itemsLeft = ' items left';
 let itemLeft = ' item left';
@@ -46,6 +66,7 @@ function template() {
         removeListElement(currentId);
     });
     listCount++;
+    totalListCount++
     text.value = "";
 }
 
@@ -57,6 +78,7 @@ function addListElement() {
 function removeListElement(Id) {
     if (isChecked(Id) == false) {
         listCount--;
+        totalListCount--;
     }
     let listItemId = 'listItem' + Id;
     let parent = document.getElementById('todoList');
@@ -117,9 +139,12 @@ function checkIt(Id) {
 }
 
 function removeFinished() {
-    for (i = 0; i < listCount; i++) {
-        if (isChecked(i) == true) {
-            let listItemId = 'listItem' + i;
+    let array = document.getElementsByClassName('listItem');
+    for (i = 0; i < array.length; i++) {
+        let elementId = array[i].id;
+        elementId = elementId.slice(8);
+        if (isChecked(elementId) == true) {
+            let listItemId = 'listItem' + elementId;
             let parent = document.getElementById('todoList');
             let element = document.getElementById(listItemId);
             parent.removeChild(element);
@@ -128,46 +153,68 @@ function removeFinished() {
 }
 
 function showCompleted() {
-    for (i = 0; i < listCount; i++) {
-        if (isChecked(i) == true) {
-            let listItemId = 'listItem' + i;
-            let element = document.getElementById(listItemId);
-            element.setAttribute('style', 'display: none');
+    let array = document.getElementsByClassName('listItem');
+
+    for (i = 0; i < array.length; i++) {
+        let elementId = array[i].id;
+        elementId = elementId.slice(8);
+        if (isChecked(elementId) == false) {
+            array[i].setAttribute('style', 'display: none');
+        }
+        else{
+            array[i].setAttribute('style', 'display: list-item');
         }
     }
 }
 
 function showAll() {
-    for (i = 0; i < listCount; i++) {
-        let listItemId = 'listItem' + i;
+    let array = document.getElementsByClassName('listItem');
+    for (i = 0; i < array.length; i++) {
+        let elementId = array[i].id;
+        elementId = elementId.slice(8);
+        let listItemId = 'listItem' + elementId;
         let element = document.getElementById(listItemId);
         element.setAttribute('style', 'display: list-item');
     }
 }
 
 function showUncompleted() {
-    for (i = 0; i < listCount; i++) {
-        if (isChecked(i) == false) {
-            let listItemId = 'listItem' + i;
+    let array = document.getElementsByClassName('listItem');
+    for (i = 0; i < array.length; i++) {
+        let elementId = array[i].id;
+        elementId = elementId.slice(8);
+        if (isChecked(elementId) == true) {
+            let listItemId = 'listItem' + elementId;
             let element = document.getElementById(listItemId);
             element.setAttribute('style', 'display: none');
+        }
+        else{
+            let listItemId = 'listItem' + elementId;
+        let element = document.getElementById(listItemId);
+        element.setAttribute('style', 'display: list-item');
         }
     }
 
 }
 
 function checkAll() {
-    for (i = 0; i < listCount; i++) {
-        if (isChecked(i) == false) {
-            checkIt(i);
+    let array = document.getElementsByClassName('listItem');
+    for (i = 0; i < array.length; i++) {
+        let elementId = array[i].id;
+        elementId = elementId.slice(8);
+        if (isChecked(elementId) == false) {
+            checkIt(elementId);
         }
     }
 }
 
 function unCheckAll() {
-    for (i = 0; i < listCount; i++) {
-        if (isChecked(i) == true) {
-            checkIt(i);
+    let array = document.getElementsByClassName('listItem');
+    for (i = 0; i < array.length; i++) {
+        let elementId = array[i].id;
+        elementId = elementId.slice(8);
+        if (isChecked(elementId) == true) {
+            checkIt(elementId);
         }
     }
 }
