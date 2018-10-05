@@ -42,7 +42,8 @@ body {
     background: url("https://web.2018.plus.jakobkallin.com/project/icons/circle-down.svg") no-repeat;
     position: absolute;
     height: 34px;
-    width: 60px;
+    width: 35px;
+    top: 140px;
 }
 
 button {
