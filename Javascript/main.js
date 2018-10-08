@@ -255,4 +255,16 @@ function checkAll() {
         }
         checked = false;
     }
+
+function showClearButton() {
+    var checkBox = document.getElementById('checkBox');
+    var button = document.getElementById('clearAllComplete');
+    if (checkBox.checked == true) {
+        button.setAttribute('style', 'display: block');
+    }
+    else {
+        button.setAttribute('style', 'display: none');
+    }
+}
+
 }
