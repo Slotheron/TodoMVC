@@ -156,5 +156,5 @@ input[type=checkbox]:checked + .checkBoxLabel {
     cursor: pointer;
     width: 130px; 
     line-height: 20px;
-    display: block;
+    display: none;
 }

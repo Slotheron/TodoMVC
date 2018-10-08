@@ -12,7 +12,7 @@ window.onload = function () {
     document.getElementById('selectAll').addEventListener("click", function () {
         checkAll();
     });
-    document.getElementById('clearAllComplete').addEventListener("click", function(){
+    document.getElementById('clearAllComplete').addEventListener("click", function () {
         removeFinished();
     });
 }
@@ -110,6 +110,7 @@ function updateCount() {
         labelDiv.textContent = listCount + itemLeft;
         let parent = document.getElementById('mvcFooter');
         parent.setAttribute('style', 'display: block');
+        updateView();
     }
 }
 
@@ -144,16 +145,17 @@ function checkIt(Id) {
 
 function removeFinished() {
     let array = document.getElementsByClassName('listItem');
-    for (i = 0; i < array.length; i++) {
+    for (i = array.length - 1; i >= 0; i--) {
         let elementId = array[i].id;
         elementId = elementId.slice(8);
         if (isChecked(elementId) == true) {
-            let listItemId = 'listItem' + elementId;
-            let parent = document.getElementById('todoList');
-            let element = document.getElementById(listItemId);
-            parent.removeChild(element);
+            removeListElement(elementId);
         }
     }
+    if(listCount == 0){
+        totalListCount = 0;
+    }
+    updateCount();
 }
 
 function showCompleted() {
@@ -206,7 +208,7 @@ function showUncompleted() {
 function checkAll() {
     let array = document.getElementsByClassName('listItem');
     if (checked == false) {
-        for (i = 0; i < array.length; i++) {
+        for (i = array.length -1 ; i >= 0; i--) {
             let elementId = array[i].id;
             elementId = elementId.slice(8);
             if (isChecked(elementId) == false) {
@@ -222,7 +224,7 @@ function checkAll() {
                     let list = document.getElementById('listItem' + elementId);
                     list.setAttribute('style', 'display: list-item');
                 }
-                else if (view == 'active'){
+                else if (view == 'active') {
                     let list = document.getElementById('listItem' + elementId);
                     list.setAttribute('style', 'display: none');
                 }
@@ -231,7 +233,7 @@ function checkAll() {
         checked = true;
     }
     else {
-        for (i = 0; i < array.length; i++) {
+        for (i = array.length - 1 ; i >= 0; i--) {
             let elementId = array[i].id;
             elementId = elementId.slice(8);
             if (isChecked(elementId) == true) {
@@ -247,7 +249,7 @@ function checkAll() {
                     let list = document.getElementById('listItem' + elementId);
                     list.setAttribute('style', 'display: none');
                 }
-                else if (view == 'active'){
+                else if (view == 'active') {
                     let list = document.getElementById('listItem' + elementId);
                     list.setAttribute('style', 'display: list-item');
                 }
@@ -255,11 +257,19 @@ function checkAll() {
         }
         checked = false;
     }
-
+}
 function showClearButton() {
-    var checkBox = document.getElementById('checkBox');
+    let count = 0;
+    let array = document.getElementsByClassName('listItem');
     var button = document.getElementById('clearAllComplete');
-    if (checkBox.checked == true) {
+    for (i = 0; i < array.length; i++) {
+        let elementId = array[i].id;
+        elementId = elementId.slice(8);
+        if (isChecked(elementId) == true) {
+            count++;
+        }
+    }
+    if (count > 0) {
         button.setAttribute('style', 'display: block');
     }
     else {
@@ -267,4 +277,36 @@ function showClearButton() {
     }
 }
 
+function updateView(){
+    let array = document.getElementsByClassName('listItem');
+    if(view == 'all'){
+        for(i = array.length - 1; i >= 0; i--){
+            array[i].setAttribute('display', 'display:block');
+        }
+    }
+    else if(view == 'active'){
+        for(i = array.length - 1; i >= 0; i--){
+            let elementId = array[i].id;
+            elementId = elementId.slice(8);
+            if (isChecked(elementId) == true){
+                array[i].setAttribute('style', 'display: none');
+            }
+            else{
+                array[i].setAttribute('style', 'display: block');
+            }
+        }
+    }
+    else{
+        for(i = array.length - 1; i >= 0; i--){
+            let elementId = array[i].id;
+            elementId = elementId.slice(8);
+            if (isChecked(elementId) == false){
+                array[i].setAttribute('style', 'display: none');
+            }
+            else{
+                array[i].setAttribute('style', 'display: block');
+            }
+        }
+    }
+    showClearButton();
 }
