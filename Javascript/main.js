@@ -1,7 +1,5 @@
 document.addEventListener("keydown", enter);
-window.onload = function () {/*document.getElementById('').addEventListener("click", function(){
-    removeFinished();
-})*/
+window.onload = function () {
     document.getElementById('allCompleted').addEventListener("click", function () {
         showCompleted();
     });
@@ -13,6 +11,9 @@ window.onload = function () {/*document.getElementById('').addEventListener("cli
     });
     document.getElementById('selectAll').addEventListener("click", function () {
         checkAll();
+    });
+    document.getElementById('clearAllComplete').addEventListener("click", function(){
+        removeFinished();
     });
 }
 

@@ -127,8 +127,8 @@ input[type=checkbox]:checked + .checkBoxLabel {
     border-color: rgba(240, 205, 9, 0.5);
 }
 
-.selectFilter li a:active {
-    border-color: aqua;
+.selectFilter li a:focus {
+    border-color: rgba(240, 205, 9, 0.5);
 }
 
 .strike {
@@ -143,4 +143,17 @@ input[type=checkbox]:checked + .checkBoxLabel {
     text-align: center;
     padding: 10px 15px 10px 10px;
     height: 20px;
+}
+
+.clearAllComplete {
+    font-size: inherit;
+    font-weight: inherit;
+    font-family: inherit;
+    color: inherit;
+    float: right;
+    position: relative;
+    background: none;
+    cursor: pointer;
+    width: 130px; 
+    line-height: 20px;
 }
