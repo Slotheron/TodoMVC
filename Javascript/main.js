@@ -107,7 +107,12 @@ function updateCount() {
     }
     else {
         let labelDiv = document.getElementById('divLabel')
+        if(listCount == 0 || listCount > 1){
+            labelDiv.textContent = listCount + itemsLeft;
+        }
+        else{
         labelDiv.textContent = listCount + itemLeft;
+        }
         let parent = document.getElementById('mvcFooter');
         parent.setAttribute('style', 'display: block');
         updateView();
