@@ -240,6 +240,7 @@ function checkAll() {
                 }
             }
         }
+        showClearButton(true);
         checked = true;
     }
     else {
@@ -265,6 +266,7 @@ function checkAll() {
                 }
             }
         }
+        showClearButton(false);
         checked = false;
     }
 }
