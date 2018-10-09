@@ -32,6 +32,7 @@ let itemsLeft = ' items left';
 let itemLeft = ' item left';
 let view = 'all';
 let checked = false;
+let listArray = [];
 
 function template() {
     let currentId = itemId;
@@ -78,6 +79,7 @@ function addListElement() {
     template();
     updateCount();
 }
+
 function removeListElement(Id) {
     if (isChecked(Id) == false) {
         listCount--;
@@ -92,7 +94,9 @@ function removeListElement(Id) {
 
 function validate() {
     let text = document.getElementById("add");
-    if (text.value == "" || text.value == null || text.value == " ") {
+    let validationText = text.value.trim();
+    let count = validationText.length;
+    if (validationText.length == 0) {
         return false;
     }
     else {
