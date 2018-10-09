@@ -95,7 +95,6 @@ function removeListElement(Id) {
 function validate() {
     let text = document.getElementById("add");
     let validationText = text.value.trim();
-    let count = validationText.length;
     if (validationText.length == 0) {
         return false;
     }
