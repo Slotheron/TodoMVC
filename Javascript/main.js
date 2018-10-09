@@ -32,7 +32,6 @@ let itemsLeft = ' items left';
 let itemLeft = ' item left';
 let view = 'all';
 let checked = false;
-let listArray = [];
 
 function template() {
     let currentId = itemId;
@@ -78,6 +77,7 @@ function addListElement() {
     itemId++;
     template();
     updateCount();
+    updateView();
 }
 
 function removeListElement(Id) {
@@ -90,6 +90,7 @@ function removeListElement(Id) {
     let element = document.getElementById(listItemId);
     parent.removeChild(element);
     updateCount();
+    updateView();
 }
 
 function validate() {
@@ -118,7 +119,6 @@ function updateCount() {
         }
         let parent = document.getElementById('mvcFooter');
         parent.setAttribute('style', 'display: block');
-        updateView();
     }
 }
 
@@ -140,20 +140,21 @@ function checkIt(Id) {
         let label = document.getElementById("listLabel" + Id)
         label.setAttribute('class', 'strike');
         listCount--;
-        updateCount();
     }
     else {
         let label = document.getElementById("listLabel" + Id)
         label.setAttribute('class', 'listItemLabel');
         listCount++;
-        updateCount();
         checked = false;
     }
+    updateCount();
+    updateView();
 }
 
 function removeFinished() {
     let array = document.getElementsByClassName('listItem');
-    for (i = array.length - 1; i >= 0; i--) {
+    let length = array.length - 1;
+    for (let i = length; i >= 0; i--) {
         let elementId = array[i].id;
         elementId = elementId.slice(8);
         if (isChecked(elementId) == true) {
@@ -164,12 +165,13 @@ function removeFinished() {
         totalListCount = 0;
     }
     updateCount();
+    updateView();
 }
 
 function showCompleted() {
     let array = document.getElementsByClassName('listItem');
 
-    for (i = 0; i < array.length; i++) {
+    for (let i = 0; i < array.length; i++) {
         let elementId = array[i].id;
         elementId = elementId.slice(8);
         if (isChecked(elementId) == false) {
@@ -184,7 +186,7 @@ function showCompleted() {
 
 function showAll() {
     let array = document.getElementsByClassName('listItem');
-    for (i = 0; i < array.length; i++) {
+    for (let i = 0; i < array.length; i++) {
         let elementId = array[i].id;
         elementId = elementId.slice(8);
         let listItemId = 'listItem' + elementId;
@@ -196,7 +198,7 @@ function showAll() {
 
 function showUncompleted() {
     let array = document.getElementsByClassName('listItem');
-    for (i = 0; i < array.length; i++) {
+    for (let i = 0; i < array.length; i++) {
         let elementId = array[i].id;
         elementId = elementId.slice(8);
         if (isChecked(elementId) == true) {
@@ -216,7 +218,7 @@ function showUncompleted() {
 function checkAll() {
     let array = document.getElementsByClassName('listItem');
     if (checked == false) {
-        for (i = array.length -1 ; i >= 0; i--) {
+        for (let i = array.length -1 ; i >= 0; i--) {
             let elementId = array[i].id;
             elementId = elementId.slice(8);
             if (isChecked(elementId) == false) {
@@ -241,7 +243,7 @@ function checkAll() {
         checked = true;
     }
     else {
-        for (i = array.length - 1 ; i >= 0; i--) {
+        for (let i = array.length - 1 ; i >= 0; i--) {
             let elementId = array[i].id;
             elementId = elementId.slice(8);
             if (isChecked(elementId) == true) {
@@ -266,55 +268,54 @@ function checkAll() {
         checked = false;
     }
 }
-function showClearButton() {
-    let count = 0;
-    let array = document.getElementsByClassName('listItem');
+function showClearButton(enable) {
     var button = document.getElementById('clearAllComplete');
-    for (i = 0; i < array.length; i++) {
-        let elementId = array[i].id;
-        elementId = elementId.slice(8);
-        if (isChecked(elementId) == true) {
-            count++;
-        }
-    }
-    if (count > 0) {
+    if (enable == true) {
         button.setAttribute('style', 'display: block');
     }
-    else {
+    else if(enable == false){
         button.setAttribute('style', 'display: none');
     }
 }
 
 function updateView(){
     let array = document.getElementsByClassName('listItem');
-    if(view == 'all'){
-        for(i = array.length - 1; i >= 0; i--){
+    let count = 0;
+    for(let i = array.length - 1; i >= 0; i--){
+        if(view == 'all'){
             array[i].setAttribute('display', 'display:block');
+            let id = array[i].id.slice(8);
+            if (isChecked(id) == true) {
+                count++;
+            }
         }
-    }
-    else if(view == 'active'){
-        for(i = array.length - 1; i >= 0; i--){
-            let elementId = array[i].id;
-            elementId = elementId.slice(8);
-            if (isChecked(elementId) == true){
+        else if (view == 'active'){
+            array[i].setAttribute('display', 'display:block');
+            let id = array[i].id.slice(8);
+            if (isChecked(id) == true) {
                 array[i].setAttribute('style', 'display: none');
+                count++;
             }
             else{
                 array[i].setAttribute('style', 'display: block');
             }
         }
+        else if(view == 'completed'){
+            array[i].setAttribute('display', 'display:block');
+            let id = array[i].id.slice(8);
+            if (isChecked(id) == true) {
+                array[i].setAttribute('style', 'display: block');
+                count++;
+            }
+            else{
+                array[i].setAttribute('style', 'display: none');
+            }
+        }
+    }
+    if(count > 0){
+        showClearButton(true);
     }
     else{
-        for(i = array.length - 1; i >= 0; i--){
-            let elementId = array[i].id;
-            elementId = elementId.slice(8);
-            if (isChecked(elementId) == false){
-                array[i].setAttribute('style', 'display: none');
-            }
-            else{
-                array[i].setAttribute('style', 'display: block');
-            }
-        }
+        showClearButton(false);
     }
-    showClearButton();
 }
