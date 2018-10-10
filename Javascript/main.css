@@ -53,7 +53,7 @@ body {
     opacity: 0.5;
 }
 
-button {
+.buttonItem {
     margin-left: 5px;
     float: right;
     background: url("https://web.2018.plus.jakobkallin.com/project/icons/cross.svg");
@@ -99,11 +99,6 @@ input[type=checkbox]:checked + .checkBoxLabel {
     background-size: 100%;
 }
 
-#divLabel {
-    display: flex;
-    float: left;
-}
-
 .selectFilter {
 	position: relative;
 	right: 0;
@@ -111,7 +106,7 @@ input[type=checkbox]:checked + .checkBoxLabel {
 }
 
 .selectFilter li {
-    display: inline;
+    display: inline-block;
 }
 
 .selectFilter li a {
@@ -150,17 +145,8 @@ input[type=checkbox]:checked + .checkBoxLabel {
     border: 1px solid #ccc;
     text-align: center;
     padding: 10px 15px 10px 10px;
-    height: 20px;
+    height: auto;
     display: block;
-}
-
-@media screen and (max-width: 480px) {
-    .mvcFooter {
-        border: 1px solid #ccc;
-        text-align: center;
-        padding: 10px 15px 10px 10px;
-        height: 20px;
-    }
 }
 
 .clearAllComplete {
@@ -168,10 +154,10 @@ input[type=checkbox]:checked + .checkBoxLabel {
     font-weight: inherit;
     font-family: inherit;
     color: inherit;
-    float: right;
     background: none;
     cursor: pointer;
     width: 130px; 
     line-height: 20px;
     display: none;
+    border: hidden;
 }
