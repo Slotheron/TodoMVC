@@ -183,6 +183,15 @@ function showCompleted() {
         }
     }
     view = 'completed';
+
+    let selected = document.getElementById("allCompleted");
+    selected.setAttribute('class', 'selected');
+
+    let x = document.getElementById("allSelected");
+    x.setAttribute('class', 'unSelected');
+
+    let y = document.getElementById("allActive");
+    y.setAttribute('class', 'unSelected');
 }
 
 function showAll() {
@@ -195,6 +204,15 @@ function showAll() {
         element.setAttribute('style', 'display: list-item');
     }
     view = 'all';
+
+    let selected = document.getElementById("allSelected");
+    selected.setAttribute('class', 'selected');
+
+    let x = document.getElementById("allActive");
+    x.setAttribute('class', 'unSelected');
+
+    let y = document.getElementById("allCompleted");
+    y.setAttribute('class', 'unSelected');
 }
 
 function showUncompleted() {
@@ -214,6 +232,15 @@ function showUncompleted() {
         }
     }
     view = 'active';
+
+    let selected = document.getElementById("allActive");
+    selected.setAttribute('class', 'selected');
+
+    let x = document.getElementById("allSelected");
+    x.setAttribute('class', 'unSelected');
+
+    let y = document.getElementById("allCompleted");
+    y.setAttribute('class', 'unSelected');
 }
 
 function checkAll() {
