@@ -102,11 +102,26 @@ input[type=checkbox]:checked + .checkBoxLabel {
 .selectFilter {
 	position: relative;
 	right: 0;
-	left: 0;
+    left: 0;
+}
+
+@media screen and (max-width: 480px) {
+    .selectFilter {
+        position: relative;
+        right: 0;
+        left: 0;
+        display: inline-block;
+    }
 }
 
 .selectFilter li {
     display: inline-block;
+}
+
+@media screen and (max-width: 480px) {
+    .selectFilter li {
+        display: block;
+    }
 }
 
 .selectFilter li a {
@@ -146,7 +161,6 @@ input[type=checkbox]:checked + .checkBoxLabel {
     text-align: center;
     padding: 10px 15px 10px 10px;
     height: auto;
-    display: block;
 }
 
 .clearAllComplete {
@@ -171,4 +185,10 @@ input[type=checkbox]:checked + .checkBoxLabel {
 
 #divLabelLi{
     float:left;
+}
+
+@media screen and (max-width: 480px) {
+    #divLabelLi{
+        float: none;
+    }
 }
