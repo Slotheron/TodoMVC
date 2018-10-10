@@ -272,12 +272,12 @@ function checkAll() {
     }
 }
 function showClearButton(enable) {
-    var button = document.getElementById('clearAllComplete');
+    var li = document.getElementById('clearAllCompleteLi');
     if (enable == true) {
-        button.setAttribute('style', 'display: block');
+        li.setAttribute('style', 'display: inline');
     }
     else if(enable == false){
-        button.setAttribute('style', 'display: none');
+        li.setAttribute('style', 'display: none');
     }
 }
 

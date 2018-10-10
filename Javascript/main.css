@@ -156,8 +156,15 @@ input[type=checkbox]:checked + .checkBoxLabel {
     color: inherit;
     background: none;
     cursor: pointer;
+    line-height: 20px;
+    display: inline;
+    border: hidden;
+}
+
+.clearAllCompleteLi{
     width: 130px; 
     line-height: 20px;
     display: none;
     border: hidden;
+    float:right;
 }
