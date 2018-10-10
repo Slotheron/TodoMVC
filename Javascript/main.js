@@ -83,8 +83,8 @@ function addListElement() {
 function removeListElement(Id) {
     if (isChecked(Id) == false) {
         listCount--;
-        totalListCount--;
     }
+    totalListCount--;
     let listItemId = 'listItem' + Id;
     let parent = document.getElementById('todoList');
     let element = document.getElementById(listItemId);
