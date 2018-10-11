@@ -24,6 +24,10 @@ h1 {
     list-style: none;
 }
 
+.todoListSe {
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+}
+
 body {
 	font: 16px Helvetica, Arial, sans-serif;
 	line-height: 1.4em;
@@ -31,7 +35,7 @@ body {
 	color: #4d4d4d;
 	min-width: 230px;
 	max-width: 550px;
-	margin: 0 auto;
+    margin: 0 auto;
 }
 
 .add {
@@ -40,6 +44,7 @@ body {
     padding: 20px 20px 20px 50px;
     border: 1px solid #ccc;
     box-sizing: border-box;
+    box-shadow: 1px 0px 10px rgba(0, 0, 0, .5);
 }
 
 .add + #selectAll {
